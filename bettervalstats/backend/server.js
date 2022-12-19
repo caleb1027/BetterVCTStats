@@ -18,6 +18,8 @@ connection.once('open', () => {
     console.log("Connected to MongoDB");
 });
 
+const playersRouter = require('./routes/players');
+app.use('/players', playersRouter);
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`)
