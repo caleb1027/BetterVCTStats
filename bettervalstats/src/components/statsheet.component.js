@@ -1,45 +1,53 @@
-// import React, { Component } from 'react';
+import React from 'react';
 
-// function BigStat(props) {
-//     return (
-//         <div class="bigStat">
-//             <h3 class="bigStatType">{props.stat}</h3>
-//             <h1 class="bigStatValue">{props.value}</h1>
-//         </div>
-//     )
-// }
+function BigStat(props) {
+    return (
+        <div className="flex justify-center bg-slate-500 rounded-md m-3 h-24 w-48">
+          <div className="flex-col">
+            <h3 className="text-xl text-center font-semibold text-white">{props.stat}</h3>
+            <h1 className="text-5xl text-center font-bold text-white">{props.value}</h1>
+          </div>
+        </div>
+    )
+}
 
-// function Stat(props) {
-//     return (
-//         <div class="stat">
-//             <h3 class="statType">{props.stat}</h3>
-//             <h1 class="statValue">{props.value}</h1>
-//         </div>
-//     )
-// }
+function Stat(props) {
+    return (
+        <div className="bg-slate-600 w-48">
+            <div className='flex-col'>
+                <h3 className="text-l text-center font-semibold text-white">{props.stat}</h3>
+                <h1 className="text-3xl text-center font-semibold text-white">{props.value}</h1>
+            </div>
+        </div>
+    )
+}
 
-// export default class StatSheet extends Component {
+const StatSheet = props => {
+    return(
+        <div className="flex justify-center">
+            <div className='w-[70%]"'>
+               <h1 className="text-3xl text-left font-semibold text-white h-8 ml-4">Rounds Played: {props.player.rounds}</h1>
+                 <div className="flex justify-center h-32 w-[100%]">
+                     <BigStat stat="ACS" value={props.player.acs}></BigStat>
+                     <BigStat stat="K:D" value={props.player.kd}></BigStat>
+                     <BigStat stat="HS %" value={(100* props.player.hsp)}></BigStat>
+                 </div>
+                <div className=' bg-slate-600 rounded-md p-1'>
+                    <div className="flex justify-between mt-3">
+                        <Stat stat="KPR" value = {props.player.kpr}></Stat>
+                        <Stat stat="APR" value = {props.player.apr}></Stat>
+                        <Stat stat="ADR" value = {props.player.adr}></Stat>
+                    </div>
+                    <div className="flex justify-between my-5">
+                        <Stat stat="KAST" value = {props.player.kast}></Stat>
+                        <Stat stat="FK:FD" value = {props.player.fkfd}></Stat>
+                        <Stat stat="Clutch %" value = {Math.round(100* props.player.clutch)}></Stat>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    )
+}
 
-//     render() {
-//         return (
-//             <div class="statSheet">
-//                 <h1 class="heading">Rounds Played: {this.props.playerStats[0]}</h1>
-//                 <div class="bigRow">
-//                     <BigStat stat="ACS" value={this.props.playerStats[1]}></BigStat>
-//                     <BigStat stat="K:D" value={this.props.playerStats[2]}></BigStat>
-//                     <BigStat stat="HS %" value={this.props.playerStats[7]}></BigStat>
-//                 </div>
-//                 <div class="smallRow">
-//                     <Stat stat="KPR" value = {this.props.playerStats[3]}></Stat>
-//                     <Stat stat="APR" value = {this.props.playerStats[4]}></Stat>
-//                     <Stat stat="ADR" value = {this.props.playerStats[6]}></Stat>
-//                 </div>
-//                 <div class="smallRow">
-//                     <Stat stat="KAST" value = {this.props.playerStats[5]}></Stat>
-//                     <Stat stat="FK:FD" value = {this.props.playerStats[8]}></Stat>
-//                     <Stat stat="Clutch %" value = {this.props.playerStats[9]}></Stat>
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
+export default StatSheet
