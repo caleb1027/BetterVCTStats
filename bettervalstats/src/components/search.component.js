@@ -36,18 +36,21 @@ export default class Search extends Component {
 
     render() { 
         return (
-        <div className="object-cover flex justify-center h-screen overflow-hidden">
-            <div className='object-cover flex-col my-80 '>
-                <h1 className='text-left text-white text-3xl font-bold'>Better VLR Stats</h1>
+        <div className="object-cover flex-col justify-center items-center flex">
+            <div className='object-cover flex-col flex items-center mt-72 mb-5 w-1/2'>
+                <h1 className='text-center text-white text-6xl font-bold'>Valorant Statistics</h1>
+                <h1 className='text-center text-white text-8xl font-bold'>made <span className='text-transparent bg-clip-text bg-gradient-to-br from-blue-200 to-blue-600'>better.</span></h1>
+            </div>
+            <div className='w-1/2 flex items-center object-cover flex-col'>
                 <input value={this.state.inputValue} onChange={this.update}
-                className="h-12 bg-gray-700 border-2 px-2 rounded-lg relative w-96  text-white" 
-                placeholder='Search for Player...' list="names"></input>
+                className="h-16 bg-white border-slate-700 border-2 focus:outline-none relative rounded-full w-2/3 px-[16px]" 
+                placeholder='Search for Player' list="names"></input>
                 <datalist id='names'>
                     {this.state.names.map((name) =>
                         <option value={name}>{name}</option>
                     )}
                 </datalist>
-                <Link to={`/player/${this.state.inputValue}`}className='ml-5 bg-slate-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded'>
+                <Link to={`/player/${this.state.inputValue}`} className='text-lg m-5 text-center w-36 bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-xl'>
                     Search</Link>
             </div>
         </div>

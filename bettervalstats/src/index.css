@@ -13,7 +13,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(25, 36, 58);
+  background-image: url("/src/styles/bgimg2.jpg");
+  background-position:center;
+  background-size: 1920px 1080px;
+  background-blend-mode: overlay;
 
 }
 
