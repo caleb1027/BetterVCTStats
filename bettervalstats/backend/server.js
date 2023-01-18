@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/players', players);
-app.use('/graph', graph);
+app.use('/players', graph);
 
 
 export default app;

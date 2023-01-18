@@ -4,6 +4,7 @@ import GraphDataService from '../services/graph.service'
 import { useParams } from "react-router-dom"
 import StatSheet from './statsheet.component';
 import PlayerProfile from './playerprofile.component';
+import GraphContainer from './graph.component';
 
 const Display = props => {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -37,13 +38,14 @@ const Display = props => {
     useEffect(() => {
         getPlayer(name)
         getGraph(name)
-    })
+    }, [])
 
     return(
         hasLoaded ? 
         <div>
             <PlayerProfile player={Player} />
             <StatSheet player={Player}/>
+            <GraphContainer player={graphs}/>
         </div>
         : <p>Loading...</p>
     )
